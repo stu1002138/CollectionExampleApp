@@ -20,41 +20,38 @@ public class VolleyLayout extends LinearLayout{
     public VolleyLayout(Context context) {
         super(context);
         setOrientation(LinearLayout.VERTICAL);
-        init();
-
-    }
-    private void init(){
         ruler= new WH(getContext());
+        stringText=setstringText();
+        imageView= setimageView();
+        jsonText=setjsonText();
+        addView(stringText);
+        addView(imageView);
+        addView(jsonText);
+    }
+    public TextView setstringText(){
+        TextView v = new TextView(getContext());
+        v.setId(generateViewId.get());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
+        v.setLayoutParams(params);
+        v.setTextSize(ruler.getTextSize(10));
+        return v;
+    }
+    public ImageView setimageView(){
+        ImageView v = new ImageView(getContext());
+        v.setId(generateViewId.get());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
+        v.setLayoutParams(params);
+        return v;
+    }
+    public TextView setjsonText(){
         {
-            stringText = new TextView(getContext());
-            stringText.setId(generateViewId());
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
-            stringText.setLayoutParams(params);
-            stringText.setTextSize(ruler.getTextSize(10));
-            this.addView(stringText);
-        }
-        {
-            imageView = new ImageView(getContext());
-            imageView.setId(generateViewId());
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
-            imageView.setLayoutParams(params);
-            this.addView(imageView);
-        }
-        {
-            jsonText = new TextView(getContext());
-            jsonText.setId(generateViewId());
+            TextView v = new TextView(getContext());
+            v.setId(generateViewId.get());
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ruler.getH(25));
-            jsonText.setLayoutParams(params);
-            jsonText.setTextSize(ruler.getTextSize(10));
-            this.addView(jsonText);
+            v.setLayoutParams(params);
+            v.setTextSize(ruler.getTextSize(10));
+            return v;
         }
-    }
-    public TextView getStringText(){
-        return stringText;
-    }
-    public TextView getJsonText(){  return jsonText;}
-    public ImageView getImage(){
-        return imageView;
     }
 
 }

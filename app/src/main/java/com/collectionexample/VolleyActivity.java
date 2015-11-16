@@ -26,23 +26,23 @@ public class VolleyActivity extends AppCompatActivity {
         apiRequest.request(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                volleyLayout.getStringText().setText(response);
+                volleyLayout.setstringText().setText(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                volleyLayout.getStringText().setText(text);
+                volleyLayout.setstringText().setText(text);
             }
         });
         apiRequest.imagerequest(new Response.Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
-                volleyLayout.getImage().setImageBitmap(response);
+                volleyLayout.setimageView().setImageBitmap(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                volleyLayout.getImage().setImageResource(R.mipmap.ic_launcher);
+                volleyLayout.setimageView().setImageResource(R.mipmap.ic_launcher);
             }
         });
         apiRequest.jsonObjectRequest(new Response.Listener<String>() {
@@ -60,7 +60,7 @@ public class VolleyActivity extends AppCompatActivity {
 
                         String display = obj.getString("display");
                         X = X + display + "\n";
-                        volleyLayout.getJsonText().setText(X);
+                        volleyLayout.setjsonText().setText(X);
                         Log.d("get", "get");
                     }
                 } catch (JSONException e) {
@@ -70,7 +70,7 @@ public class VolleyActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                volleyLayout.getJsonText().setText("null");
+                volleyLayout.setjsonText().setText("null");
             }
         });
     }
