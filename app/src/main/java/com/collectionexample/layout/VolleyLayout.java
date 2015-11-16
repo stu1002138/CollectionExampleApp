@@ -5,54 +5,56 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.collectionexample.model.GenerateViewId;
 import com.collectionexample.model.WH;
 
 /**
  * Created by Lucas on 2015/10/24.
  */
 public class VolleyLayout extends LinearLayout{
-    private TextView StringText,JsonText;
-    private WH WH;
-    public ImageView Image;
+    private TextView stringText,jsonText;
+    private GenerateViewId generateViewId;
+    private WH ruler;
+    public ImageView imageView;
     public VolleyLayout(Context context) {
         super(context);
         setOrientation(LinearLayout.VERTICAL);
         init();
+
     }
     private void init(){
-        WH= new WH(getContext());
+        ruler= new WH(getContext());
         {
-            StringText = new TextView(getContext());
-            StringText.setId(getRandomId());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,WH.getH(25));
-            StringText.setLayoutParams(layoutParams);
-            StringText.setTextSize(WH.getTextSize(10));
-            this.addView(StringText);
+            stringText = new TextView(getContext());
+            stringText.setId(generateViewId());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
+            stringText.setLayoutParams(params);
+            stringText.setTextSize(ruler.getTextSize(10));
+            this.addView(stringText);
         }
         {
-            Image = new ImageView(getContext());
-            Image.setId(getRandomId());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(WH.getW(20),WH.getH(20));
-            Image.setLayoutParams(layoutParams);
-            this.addView(Image);
+            imageView = new ImageView(getContext());
+            imageView.setId(generateViewId());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
+            imageView.setLayoutParams(params);
+            this.addView(imageView);
         }
         {
-            JsonText = new TextView(getContext());
-            JsonText.setId(getRandomId());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,WH.getH(25));
-            JsonText.setLayoutParams(layoutParams);
-            JsonText.setTextSize(WH.getTextSize(10));
-            this.addView(JsonText);
+            jsonText = new TextView(getContext());
+            jsonText.setId(generateViewId());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ruler.getH(25));
+            jsonText.setLayoutParams(params);
+            jsonText.setTextSize(ruler.getTextSize(10));
+            this.addView(jsonText);
         }
     }
     public TextView getStringText(){
-        return StringText;
+        return stringText;
     }
-    public TextView getJsonText(){  return JsonText;}
+    public TextView getJsonText(){  return jsonText;}
     public ImageView getImage(){
-        return Image;
+        return imageView;
     }
-    protected int getRandomId() {
-        return (int) (Math.random() * 1000000);
-    }
+
 }
