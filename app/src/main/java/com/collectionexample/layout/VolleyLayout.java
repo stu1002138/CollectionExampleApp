@@ -14,7 +14,6 @@ import com.collectionexample.model.WH;
  */
 public class VolleyLayout extends LinearLayout{
     private TextView stringText,jsonText;
-    private GenerateViewId generateViewId;
     private WH ruler;
     public ImageView imageView;
     public VolleyLayout(Context context) {
@@ -30,7 +29,7 @@ public class VolleyLayout extends LinearLayout{
     }
     public TextView setstringText(){
         TextView v = new TextView(getContext());
-        v.setId(generateViewId.get());
+        v.setId(GenerateViewId.get());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
         v.setLayoutParams(params);
         v.setTextSize(ruler.getTextSize(10));
@@ -38,7 +37,7 @@ public class VolleyLayout extends LinearLayout{
     }
     public ImageView setimageView(){
         ImageView v = new ImageView(getContext());
-        v.setId(generateViewId.get());
+        v.setId(GenerateViewId.get());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
         v.setLayoutParams(params);
         return v;
@@ -46,7 +45,7 @@ public class VolleyLayout extends LinearLayout{
     public TextView setjsonText(){
         {
             TextView v = new TextView(getContext());
-            v.setId(generateViewId.get());
+            v.setId(GenerateViewId.get());
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ruler.getH(25));
             v.setLayoutParams(params);
             v.setTextSize(ruler.getTextSize(10));
