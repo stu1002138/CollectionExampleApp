@@ -57,7 +57,6 @@ public class VolleyActivity extends AppCompatActivity {
                     Log.d("two", "get");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject obj = jsonArray.getJSONObject(i);
-
                         String display = obj.getString("display");
                         X = X + display + "\n";
                         volleyLayout.setjsonText().setText(X);

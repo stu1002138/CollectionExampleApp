@@ -28,25 +28,25 @@ public class VolleyLayout extends LinearLayout{
         addView(jsonText);
     }
     public TextView setstringText(){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
         TextView v = new TextView(getContext());
         v.setId(GenerateViewId.get());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,ruler.getH(25));
         v.setLayoutParams(params);
         v.setTextSize(ruler.getTextSize(10));
         return v;
     }
     public ImageView setimageView(){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
         ImageView v = new ImageView(getContext());
         v.setId(GenerateViewId.get());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ruler.getW(20),ruler.getH(20));
         v.setLayoutParams(params);
         return v;
     }
     public TextView setjsonText(){
         {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ruler.getH(25));
             TextView v = new TextView(getContext());
             v.setId(GenerateViewId.get());
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ruler.getH(25));
             v.setLayoutParams(params);
             v.setTextSize(ruler.getTextSize(10));
             return v;
